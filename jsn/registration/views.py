@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse  
 from jsn import settings  
 from django.core.mail import send_mail  
@@ -12,6 +12,7 @@ def reg(request):
 def saveReg(request):
 
     if request.method == "POST":  
+
         firstname=request.POST.get('firstname','')
         lastname=request.POST.get('lastname','')
         username=request.POST.get('username','')
@@ -22,7 +23,7 @@ def saveReg(request):
         state=request.POST.get('state','')
         zipcode=request.POST.get('zip','')
 
-        context={'firstname':firstname,'lastname':lastname,'emailid':emailid,'password':password,'city':city,'zip':zipcode,'state':state,'username':username}
+        context={'firstname':firstname,'lastname':lastname,'emailid':emailid,'password':password,'city':city,'zip':zipcode,'state':state,'username':username,'id':id}
         
     
         if password==rpassword:
@@ -32,16 +33,18 @@ def saveReg(request):
             Registrations.save()
             mail(context)
         else:
-             return render(request,'registration.html',context) 
+             return render(request,'login.html',context) 
     
-    return render(request,'mail.html',context) 
+    return redirect('/login/login') 
 
 def mail(context):
     subject = "Registration"  
     
     html_message = loader.render_to_string(
             'mail.html',
-            {              
+            {          
+                'firstname':context['firstname'],
+                'lastname':context['lastname']    
             }
         )
     msg=""

@@ -20,7 +20,9 @@ urlpatterns = [
    
     path('login',views.login),
     path('checklogin',views.checklogin),
-    path('checkotp',views.checkotp)
-    
+    path('checkotp',views.checkotp),
+    path('forget',views.forget),
+    path('resetpassword',views.resetpassword),
+    path('sendResetotp',views.sendResetotp),
 
 ]

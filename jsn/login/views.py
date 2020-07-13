@@ -15,27 +15,30 @@ def login(request):
     return render(request,'login.html')
 
 def checklogin(request):
-    print("hiii")
-    if request.method == "POST":  
-        emailid=request.POST.get('emailid','')
-        password=request.POST.get('password','')
-        id=request.POST.get('id','')
-        #print(emailid,password)
-        Registrations_E=Registration.objects.get(emailid=emailid)
-        #print(Registrations_E.emailid)
-        if(Registrations_E.password==password and Registrations_E.emailid==emailid):
-            o=random.randrange(100000,999999)
-            otp=str(o)
-            print(otp)  
-            
-            logins=Login(emailid=emailid,password=password,otp=otp,activeotp=True)
-            logins.save()
-            context={'otp':otp,'emailid':emailid}
-            login_mail(context)
-            
-        else:
-            return render(request,'login.html')
-    return render(request,'otp.html',context)
+    try:
+        if request.method == "POST":  
+            emailid=request.POST.get('emailid','')
+            password=request.POST.get('password','')
+            id=request.POST.get('id','')
+            #print(emailid,password)
+            Registrations_E=Registration.objects.get(emailid=emailid)
+            #print(Registrations_E.emailid)
+            if(Registrations_E.password==password and Registrations_E.emailid==emailid):
+                o=random.randrange(100000,999999)
+                otp=str(o)
+                print(otp)  
+                
+                logins=Login(emailid=emailid,password=password,otp=otp,activeotp=True)
+                logins.save()
+                context={'otp':otp,'emailid':emailid}
+                login_mail(context)
+                return render(request,'otp.html',context)         
+            else:
+                return render(request,'login.html')
+    except:
+        return redirect('/registration/reg')
+        #return render(request,'registration.html',{'display':'none'})
+       
 
 def login_mail(context):
     subject = "OTP For Login into JAN SAMSYA NIAVARAN"  
@@ -55,7 +58,7 @@ def checkotp(request):
     otp=request.POST.get('otp','')
     print(emailid)
     logins=Login.objects.get(emailid=emailid)
-
+    Registrations=Registration.objects.get(emailid=logins.emailid)
     
     if(logins.activeotp==True and logins.otp==otp):
         logins.activeotp=False
@@ -77,9 +80,10 @@ def checkotp(request):
     
         to      = emailid  
         res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to],html_message=html_message)  
-    
-        msg="login succesfully"
-        return HttpResponse(msg)
+        request.session['emailid']=emailid
+        request.session['username']=Registrations.username
+        
+        return redirect('/user/userhome')
     else:
         context={'emailid':emailid}
         return render(request,'otp.html',context)

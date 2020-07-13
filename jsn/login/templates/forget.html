@@ -29,16 +29,16 @@
                         <form method="POST" action="sendResetotp">{% csrf_token %}
                             <div class="form-group">
                                 <label class="form-control-label">EMAILID</label>
-                                <input type="text" class="form-control" name="emailid" value="{{emailid}}"">
+                                <input type="text" class="form-control" name="emailid" value="{{emailid}}"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  oninvalid="this.setCustomValidity('Enter Proper emailid')" oninput="this.setCustomValidity('')" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">PASSWORD</label>
-                                <input type="password" class="form-control" name="password" i>
+                                <input type="password" class="form-control" name="password" i pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter')" oninput="this.setCustomValidity('')" onpaste="return false" required>
                                 
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">CONFIRM-PASSWORD</label>
-                                <input type="password" class="form-control" name="cpassword" i>
+                                <input type="password" class="form-control" name="cpassword" i pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter')" oninput="this.setCustomValidity('')" onpaste="return false"required>
                                 
                             </div>
                             <div>

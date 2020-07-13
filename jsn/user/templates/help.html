@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Help</title>
+  </head>
+  <body>
+   <nav class="navbar  navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="/home">Jan Samsya Nivaran</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">HOME</a>
+        
+      </li>
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="mydashbord">MY DASHBORD</a>
+        
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="complaint">COMPLAINT</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="myaccount">MY ACCOUNT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="help">HELP</a>
+      </li>
+          </ul>
+    <a href="/user/logout"><button class="btn btn-outline-success mr-2 my-2 my-sm-0" type="submit">Logout</button></a>
+   
+    
+  </div>
+</nav>
+      
+      <center><h1><u>Help</u></h1></center>
+      <hr>
+    <div>
+        <center><h1>Welcome page</h1>
+        <img src="{% static 'home.png' %}" class="img-thumbnail" height="5%" width="70%"></center><hr>
+       <center> <h1>To See Your Complaint Click on Dashboard </h1>
+        <img src="{% static 'Dashboard.png' %}"  class="img-thumbnail" height="5%" width="70%"></center><hr>
+       <center> <h1>For any Complaint Click on My Complaint</h1>
+        <img src="{% static 'complaint.png' %}" class="img-thumbnail" height="5%" width="70%"></center><hr>
+        <center><h1>To see Your Account </h1>
+        <img src="{% static 'myaccount.png' %}" class="img-thumbnail" height="5%" width="70%"></center>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -14,10 +14,61 @@
 
 
     <title>complaint</title>
+    <script> 
+    function upload_check()
+        {
+            var upl = document.getElementById("file_id");
+            var imgsize = document.getElementById("imagesize");
+            
+            
+            if(Math.round(upl.files[0].size)/1024 > 1000 )
+            {
+            imgsize.style.display=""; 
+            upl.value = "";
+            }
+            else
+            {
+
+                imgsize.style.display="none"; 
+            }
+        };
+     
+</script> 
 </head>
 
 <body>
+<nav class="navbar  navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="/home">JAN SAMSYA NIVARAN</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="userhome">HOME</a>
+        
+      </li>
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="mydashbord">MY DASHBORD</a>
+        
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="complaint">COMPLAINT</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="myaccount">MY ACCOUNT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="help">HELP</a>
+      </li>
+          </ul>
+    <a href="/user/logout"><button class="btn btn-outline-success mr-2 my-2 my-sm-0" type="submit">Logout</button></a>
+   
+    
+  </div>
+</nav>
 
     <div class="container">
         <div class="row">
@@ -49,7 +100,9 @@
                             </div>
                             <div class="form-group">
                                 <label class="form`-control-label">Image</label>
-                                <input type="file" accept="image/*" name="image" class="form-control" required>
+                                <input type="file" accept="image/*" name="image" onchange="upload_check()" id="file_id"  id="image"class="form-control" required>
+                                <span style='display:none;color:red' id="imagesize"><small>Image size should be <2 MB
+                                        </small></span>
 
                             </div>
                             <div class="form-group">

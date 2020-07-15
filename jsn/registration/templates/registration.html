@@ -27,11 +27,11 @@
 
                             <div class="form-group">
                                 <label class="form-control-label">Firstname</label>
-                                <input type="text" name="firstname" class="form-control" value="{{firstname}}" pattern="[a-zA-Z]{2,}"  oninvalid="this.setCustomValidity('Enter First Name Here')" oninput="this.setCustomValidity('')"required>
+                                <input type="text" name="firstname" class="form-control" value="{{firstname}}" pattern="[a-zA-Z]{2,}"  oninvalid="this.setCustomValidity('Enter Valid First Name ')" oninput="this.setCustomValidity('')"required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Lastname</label>
-                                <input type="text" name="lastname" class="form-control" value="{{lastname}}" pattern="[a-zA-Z]{2,}"  oninvalid="this.setCustomValidity('Enter Last Name Here')" oninput="this.setCustomValidity('')"required>
+                                <input type="text" name="lastname" class="form-control" value="{{lastname}}" pattern="[a-zA-Z]{2,}"  oninvalid="this.setCustomValidity('Enter Valid Last Name')" oninput="this.setCustomValidity('')"required>
 
                             </div>
                             <div class="form-group">
@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Emailid</label>
-                                <input type="text" name="emailid" class="form-control" value="{{emailid}}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  oninvalid="this.setCustomValidity('Enter Proper emailid')" oninput="this.setCustomValidity('')"required/>
+                                <input type="text" name="emailid" class="form-control" value="{{emailid}}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  oninvalid="this.setCustomValidity('Enter Valid emailid')" oninput="this.setCustomValidity('')"required/>
 
                             </div>
                             <div class="form-group">
@@ -69,12 +69,12 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Zip</label>
-                                <input type="text" name="zip" class="form-control" value="{{zip}}" pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$" oninvalid="this.setCustomValidity('Enter valid zip')" oninput="this.setCustomValidity('')"required>
+                                <input type="text" name="zip" class="form-control" value="{{zip}}" pattern="^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$" oninvalid="this.setCustomValidity('Enter valid zipcode')" oninput="this.setCustomValidity('')"required>
 
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" oninvalid="this.setCustomValidity('Agree to terms and conditions')" oninput="this.setCustomValidity('')"required>
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" oninvalid="this.setCustomValidity('Agree terms and conditions')" oninput="this.setCustomValidity('')"required>
                                     <label class="form-check-label" for="invalidCheck" required>
                                         <font style="color:#6C6C6C;">Agree to terms and conditions</font>
                                     </label>

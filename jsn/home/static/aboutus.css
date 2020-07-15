@@ -5,7 +5,7 @@
 	color: #FFFFFF;
 	padding-top: 2%;
     padding-bottom: 3%;
-	margin-top:50px
+	margin-top:58px
 	
 }
 .about h1 {
@@ -61,7 +61,7 @@
 	position: relative;
 	top: 50%;
 	transform: translateX(-50%) translateY(-50%);
-	width: 500px;
+	width: 300px;
   }
   
   .text {

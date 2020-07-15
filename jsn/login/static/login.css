@@ -119,7 +119,8 @@ label {
 }
 
 .forgetpass{
-	margin-left: 70%;
-	font-size: 13px;
+    padding-right: 10px;
+    font-size: 1px;
+    align-content: right;
 	color: #bebcbc;
 }

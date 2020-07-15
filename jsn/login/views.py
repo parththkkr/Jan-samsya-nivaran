@@ -56,7 +56,7 @@ def login_mail(context):
 def checkotp(request):
     emailid=request.POST.get('emailid','')
     otp=request.POST.get('otp','')
-    print(emailid)
+    #print(emailid)
     logins=Login.objects.get(emailid=emailid)
     Registrations=Registration.objects.get(emailid=logins.emailid)
     
@@ -104,12 +104,12 @@ def sendResetotp(request):
                 #print(Registrations_E.emailid)
                 o=random.randrange(100000,999999)
                 otp=str(o)
-                print(otp)  
+                #print(otp)  
                 Resetpass=Resetpassword(emailid=emailid,password=password,otp=otp,activeotp=True)
                 Resetpass.save()
                 context={'otp':otp,'emailid':emailid}
                 resetpass_mail(context)
-                print("yes yes")
+                #print("yes yes")
                 return render(request,'resetpassotp.html',context)
             else:
                 return render(request,'forget.html')
@@ -133,7 +133,7 @@ def resetpass_mail(context):
 def resetpassword(request):
     emailid=request.POST.get('emailid','')
     otp=request.POST.get('otp','')
-    print(emailid)
+    #print(emailid)
     Resetpass=Resetpassword.objects.get(emailid=emailid)
 
     
@@ -166,8 +166,6 @@ def resetpassword(request):
         res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to],html_message=html_message)  
     
         msg="Reset password succesfully"
-        context={'emailid':emailid}
-        return render(request,'login.html',context)
+        return redirect('/login/login')
     else:
-        context={'emailid':emailid}
-        return render(request,'otp.html',context)
+        return redirect('/login/forget')

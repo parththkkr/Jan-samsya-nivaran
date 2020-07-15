@@ -166,7 +166,8 @@ def resetpassword(request):
         res     = send_mail(subject, msg, settings.EMAIL_HOST_USER, [to],html_message=html_message)  
     
         msg="Reset password succesfully"
-        return HttpResponse(msg)
+        context={'emailid':emailid}
+        return render(request,'login.html',context)
     else:
         context={'emailid':emailid}
         return render(request,'otp.html',context)

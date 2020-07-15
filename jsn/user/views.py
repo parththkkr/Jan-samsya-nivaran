@@ -57,12 +57,12 @@ def updateapplied(request):
         ComplaintImg=Complaint.objects.get(complaint_id=complaint_id)
         ComplaintImg.image=image
         ComplaintImg.save()    
-        return render(request,'userhome.html')
+        return redirect('/user/mydashbord')
 
 def deletecomplaint(request,complaint_id):
     username=request.session['username']
     Complaint.objects.get(complaint_id=complaint_id,username=username).delete()
-    return redirect('/user/userhome')
+    return redirect('/user/mydashbord')
 
 def myaccount(request):
     username=request.session['username']

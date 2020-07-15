@@ -7,5 +7,5 @@ def dashbord(request):
     complaintdata=Complaint.objects.all()
     context={'complaintdata':complaintdata}
     return render(request,'dashbord.html',context)
-    
-
+def aboutus(request):
+    return render(request,'aboutus.html')
